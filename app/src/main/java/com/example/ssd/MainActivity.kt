@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 
+
+
 class MainActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var rvServices: RecyclerView
