@@ -7,54 +7,55 @@
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@drawable/bordered_box">
+        android:background="@drawable/bordered_box"
+        android:padding="24dp"
+        android:layout_margin="16dp">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textServiceTask"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Task Details" />
+                    android:text="Task Details"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="12dp" />
 
                 <EditText
                     android:id="@+id/inputWorkerDetails"
                     android:hint="Worker Details"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@android:drawable/edit_text" />
 
                 <EditText
                     android:id="@+id/inputBuilding"
                     android:hint="Building Name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@android:drawable/edit_text" />
             </LinearLayout>
         </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnScan"
+            android:text="Scan"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="12dp">
-
-            <Button
-                android:id="@+id/btnScan"
-                android:text="Scan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
     </LinearLayout>
 </RelativeLayout>

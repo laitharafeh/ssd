@@ -26,9 +26,14 @@
 <!--    </application>-->
 
 <application android:theme="@style/Theme.CleaningSystem">
-    <activity android:name=".Task10Activity" />
-    <activity android:name=".Task11Activity" />
+    <activity
+        android:name=".CaptureActivityPortrait"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
     <activity android:name=".Task12Activity" />
+    <activity android:name=".Task11Activity" />
+    <activity android:name=".Task10Activity" />
 
     <activity android:name=".MainActivity"
         android:exported="true">
