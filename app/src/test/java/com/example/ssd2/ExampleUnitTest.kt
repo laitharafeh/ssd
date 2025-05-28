@@ -1,4 +1,4 @@
-package com.example.cleaningsystem
+package com.example.ssd2
 
 import org.junit.Test
 
