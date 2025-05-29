@@ -1,6 +1,7 @@
 package com.example.ssd2
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -199,41 +200,54 @@ class QRScanActivity : AppCompatActivity() {
         if (!isScanning) return
         
         try {
-            // Remove the curly braces and split by comma
-            val cleanValue = value.trim().removeSurrounding("{", "}")
+            // Check if the value starts with { and ends with }
+            if (!value.startsWith("{") || !value.endsWith("}")) {
+                throw IllegalArgumentException("QR code must be enclosed in braces {}")
+            }
+            
+            // Remove the braces and split by comma
+            val cleanValue = value.trim().substring(1, value.length - 1)
             val parts = cleanValue.split(",").map { it.trim() }
             
-            if (parts.size == 3) {
-                val location = parts[0]
-                val building = parts[1]
-                val floor = parts[2]
+            // Validate that we have exactly 3 arguments
+            if (parts.size != 3) {
+                throw IllegalArgumentException("QR code must contain exactly 3 values (Location, Building, Floor)")
+            }
 
-                runOnUiThread {
-                    // Stop scanning first
-                    isScanning = false
-                    
-                    // Update UI with scanned values
-                    locationText.text = location
-                    buildingText.text = building
-                    floorText.text = floor
+            // Validate that none of the parts are empty
+            if (parts.any { it.isEmpty() }) {
+                throw IllegalArgumentException("All values must be non-empty")
+            }
 
-                    // Show the results layout
-                    showResultsLayout()
-                    
-                    // Clean up camera resources
-                    cameraProvider?.unbindAll()
-                    
-                    // Show success message
-                    Toast.makeText(this, "QR Code scanned successfully!", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                runOnUiThread {
-                    Toast.makeText(this, "Invalid QR Code format.", Toast.LENGTH_LONG).show()
-                }
+            val location = parts[0]
+            val building = parts[1]
+            val floor = parts[2]
+
+            runOnUiThread {
+                // Stop scanning first
+                isScanning = false
+                
+                // Update UI with scanned values
+                locationText.text = location
+                buildingText.text = building
+                floorText.text = floor
+
+                // Show the results layout
+                showResultsLayout()
+                
+                // Clean up camera resources
+                cameraProvider?.unbindAll()
+                
+                // Show success message
+                Toast.makeText(this, "QR Code scanned successfully!", Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
             runOnUiThread {
-                Toast.makeText(this, "Invalid QR Code format.", Toast.LENGTH_LONG).show()
+                val errorMessage = when (e) {
+                    is IllegalArgumentException -> e.message
+                    else -> "Invalid QR Code format. Expected format: {location, building, floor}"
+                }
+                Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
             }
         }
     }

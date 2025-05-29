@@ -43,102 +43,117 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
         android:padding="24dp"
         android:visibility="gone">
 
-        <!-- Location Field -->
+        <!-- Fields Container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:orientation="vertical"
+            android:layout_marginTop="32dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location:"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:id="@+id/locationText"
+            <!-- Location Field -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:background="@android:color/darker_gray"
-                android:padding="8dp"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
 
-        <!-- Building Name Field -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Location:"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Building:"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp"/>
+                <TextView
+                    android:id="@+id/locationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/buildingText"
+            <!-- Building Name Field -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:background="@android:color/darker_gray"
-                android:padding="8dp"/>
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Building:"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/buildingText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+            </LinearLayout>
+
+            <!-- Floor Number Field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Floor:"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/floorText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- Floor Number Field -->
+        <!-- Buttons Container -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="bottom"
             android:layout_marginBottom="32dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Floor:"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:id="@+id/floorText"
+            <Button
+                android:id="@+id/scanAgainButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Scan Again"
                 android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:background="@android:color/darker_gray"
-                android:padding="8dp"/>
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/rateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rate"
+                android:textSize="18sp"
+                android:padding="16dp"
+                android:enabled="false"/>
+
         </LinearLayout>
-
-        <Button
-            android:id="@+id/scanAgainButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scan Again"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/rateButton"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="Rate"
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:enabled="false"/>
 
     </LinearLayout>
 
